@@ -5,6 +5,7 @@ const {Server}=require('socket.io');
 const path=require('path');
 const app=express(),server=http.createServer(app),io=new Server(server,{cors:{origin:"*"}});
 app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(__dirname));
 const rooms=new Map();
 const WORDS=['mountain','river','waterfall','forest','cave','desert','beach','island'];
 function makeRoom(){return {groups:[{answers:{}},{answers:{}},{answers:{}}],checked:false,startedAt:null,duration:120,teacher:null};}
